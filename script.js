@@ -4,6 +4,7 @@ const addButton = document.querySelector('#plus');
 const subtractButton = document.querySelector('#minus');
 const multiplyButton = document.querySelector('#multiply');
 const divideButton = document.querySelector('#divide');
+const equalButton = document.querySelector('#equal');
 
 let Number1 = "";
 let Number2 = "";
@@ -125,11 +126,6 @@ function checkOperator(oper) {
         operator = oper;
         Number2 = "";
         displayText = "";
-        console.log(Number1);
-        console.log(Number2);
-        console.log(sum);
-        console.log(operator);
-        console.log(displayText);
     }
     else if(operator == "" && Number1 == "" && sum == "" && Number2 == ""){
         operator += oper;
@@ -137,9 +133,13 @@ function checkOperator(oper) {
         displayText = "";
         display.textContent = `${displayText}`;
     }
+    else if(operator == "" && Number1 !== "" && sum == "" && Number2 == ""){
+        operator += oper;
+        display.textContent = "";
+    }
 }
 
-addButton.addEventListener("click", () =>{
+addButton.addEventListener("click", () => {
     checkOperator("+");
 })
 
@@ -153,4 +153,17 @@ multiplyButton.addEventListener("click", () => {
 
 divideButton.addEventListener("click", () => {
     checkOperator("/");
+})
+
+equalButton.addEventListener("click", () => {
+    if (Number1 !== "" && Number2 == "" && operator !== "" && displayText !== ""){
+        Number2 = parseFloat(displayText);
+        sum = operate(operator, Number1, Number2);
+        display.textContent = `${sum}`;
+        Number1 = sum;
+        sum = "";
+        operator = "";
+        Number2 = "";
+        displayText = "";
+    }
 })

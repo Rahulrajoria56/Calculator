@@ -17,7 +17,7 @@ h1{
     justify-content: center;
     align-items: center;
     margin : 70px auto;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 #display{
     box-sizing: border-box;
@@ -28,12 +28,15 @@ h1{
     width: 350px;
     min-height: 106.08px;
     margin-top: 20px;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 p{
-    font-size: 40px;
+    font-family: monospace;
+    letter-spacing: -3px;
+    font-size: 50px;
+    font-weight: 400;
     margin-right: 10px;
-    color: rgba(253, 253, 253, 0.849);
+    color: rgba(24, 24, 24, 0.853);
 }
 #button-div{
     width: 350px;
@@ -56,10 +59,7 @@ button{
 #zero{
     flex-grow: 2;
 }
-#divide,
-#plus,
-#multiply,
-#minus{
+.operator{
     background-color: rgb(7, 148, 236);
     font-size: 30px;
 }
@@ -69,4 +69,10 @@ button{
 #equal{
     background-color: rgb(61, 197, 61);
     font-size: 30px;
+}
+#equal:hover{
+    background-color: rgb(55, 178, 55);
+}
+.operator:hover {
+    background-color: rgb(30, 115, 189);
 }
